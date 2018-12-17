@@ -16,7 +16,7 @@ namespace TVHForLoop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ForLoop());
+            Application.Run(new Form1());
         }
     }
 }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B7DD7F5D-A830-49B2-8B32-A8948BE12599}</ProjectGuid>
+    <ProjectGuid>{5298F322-22EF-413B-AB49-82EB1051243C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TVHForLoop</RootNamespace>
     <AssemblyName>TVHForLoop</AssemblyName>
@@ -46,17 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ForLoop.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ForLoop.Designer.cs">
-      <DependentUpon>ForLoop.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ForLoop.resx">
-      <DependentUpon>ForLoop.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
