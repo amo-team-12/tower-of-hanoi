@@ -17,5 +17,24 @@ namespace TVHForLoop
             InitializeComponent();
         }
 
+        // Formule = 2^(layers) - 1 = math.pow()
+        
+        private void layerInput_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // verandert de tekst naar een rekenbare int
+                int layers = int.Parse(layerInput.Text);
+
+                for (int i = 0; i < 10; i++)
+                {
+
+                }
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("error");
+            }
+        }
     }
 }

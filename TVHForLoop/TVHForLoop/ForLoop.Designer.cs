@@ -56,6 +56,7 @@
             this.layerInput.Name = "layerInput";
             this.layerInput.Size = new System.Drawing.Size(414, 26);
             this.layerInput.TabIndex = 1;
+            this.layerInput.TextChanged += new System.EventHandler(this.layerInput_TextChanged);
             // 
             // layerAskLabel
             // 
