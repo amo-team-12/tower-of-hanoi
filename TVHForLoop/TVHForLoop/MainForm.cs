@@ -19,10 +19,6 @@ namespace TVHForLoop
         }
         // fl is afkorting voor for-loop
         int fl = 0;
-        // mf is een afkorting voor machtsverheffing 
-        int mf = 0;
-        int forLoopInput;
-        int mInput;
 
         // For-Loop
 
@@ -114,9 +110,55 @@ namespace TVHForLoop
             {
 
             }
+
+            //time sum
+            int time = fl * 1;
+            if (time > 0)
+            {
+                int seconds = time % 60;
+                time -= seconds;
+                time = time / 60;
+
+                int minutes = time % 60;
+                time -= minutes;
+                time = time / 60;
+
+                int hours = time % 24;
+                time -= hours;
+                time = time / 24;
+
+                int days = time % 7;
+                time -= days;
+                time = time / 7;
+
+                int weeks = time % 52;
+                time -= weeks;
+                time = time / 52;
+
+                int years = time % 100;
+                time -= years;
+                time = time / 100;
+
+                int century = time;
+                time -= years;
+
+                forLoopTimeOutputLabel.Text = century + "Eeuwen, "
+                    + years + "j, "
+                    + weeks + "w, "
+                    + days + "d, "
+                    + hours + "u, "
+                    + minutes + "m, "
+                    + seconds + "s, ";
+            }
+
         }
 
         // Machtsverheffing
+
+        // mf is een afkorting voor machtsverheffing 
+        int machtsverheffing = 0;
+        int forLoopInput;
+        int mInput;
 
         private void mIncreaseOneBtn_Click(object sender, EventArgs e)
         {
@@ -128,8 +170,8 @@ namespace TVHForLoop
             }
             else
             {
-                mf++;
-                mInputBox.Text = mf.ToString();
+                machtsverheffing++;
+                mInputBox.Text = machtsverheffing.ToString();
             }
 
         }
@@ -144,13 +186,13 @@ namespace TVHForLoop
             }
             else if (mInput >= 54)
             {
-                forLoopInputBox.Text = "64";
-                mf = 64;
+                mInputBox.Text = "64";
+                machtsverheffing = 64;
             }
             else
             {
-                mf = mf + 10;
-                mInputBox.Text = mf.ToString();
+                machtsverheffing = machtsverheffing + 10;
+                mInputBox.Text = machtsverheffing.ToString();
             }
         }
 
@@ -164,8 +206,8 @@ namespace TVHForLoop
             }
             else
             {
-                mf--;
-                mInputBox.Text = mf.ToString();
+                machtsverheffing--;
+                mInputBox.Text = machtsverheffing.ToString();
             }
         }
 
@@ -173,16 +215,16 @@ namespace TVHForLoop
         {
             mInput = int.Parse(mInputBox.Text);
 
-            if (forLoopInput < 10)
+            if (mInput <= 10)
             {
-                mf = 0;
-                mInputBox.Text = mf.ToString();
+                machtsverheffing = 0;
+                mInputBox.Text = machtsverheffing.ToString();
                 return;
             }
             else
             {
-                fl = fl - 10;
-                mInputBox.Text = mf.ToString();
+                machtsverheffing = machtsverheffing - 10;
+                mInputBox.Text = machtsverheffing.ToString();
             }
         }
 
@@ -192,7 +234,7 @@ namespace TVHForLoop
 
             ulong sum = (ulong)Math.Pow(2, layers) - 1;
 
-            mMovesOutputLabel.Text = sum.ToString();
+            mMovesOutputLabel.Text = "Aantal zetten: " + sum.ToString();
         }
     }
 }
