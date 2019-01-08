@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TVHForLoop.Properties
+namespace TowerOfHanoi.Properties
 {
 
 
