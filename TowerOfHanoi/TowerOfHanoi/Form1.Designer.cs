@@ -39,9 +39,11 @@
             this.outputMachtsverheffingLabel = new System.Windows.Forms.Label();
             this.recursieGroupBox = new System.Windows.Forms.GroupBox();
             this.outputRecursieLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.forLoopGroupBox.SuspendLayout();
             this.machtsverheffingGroupBox.SuspendLayout();
             this.recursieGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // decreaseByTenBtn
@@ -156,11 +158,22 @@
             this.outputRecursieLabel.TabIndex = 6;
             this.outputRecursieLabel.Text = "Zetten: ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::TowerOfHanoi.Properties.Resources.towerofhanoi;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(353, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(332, 229);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 454);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.machtsverheffingGroupBox);
             this.Controls.Add(this.recursieGroupBox);
             this.Controls.Add(this.forLoopGroupBox);
@@ -177,6 +190,7 @@
             this.machtsverheffingGroupBox.PerformLayout();
             this.recursieGroupBox.ResumeLayout(false);
             this.recursieGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,6 +208,7 @@
         private System.Windows.Forms.GroupBox recursieGroupBox;
         private System.Windows.Forms.Label outputMachtsverheffingLabel;
         private System.Windows.Forms.Label outputRecursieLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
