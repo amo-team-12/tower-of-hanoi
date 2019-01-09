@@ -182,8 +182,10 @@
             this.Controls.Add(this.increaseByTenBtn);
             this.Controls.Add(this.increaseByOneBtn);
             this.Controls.Add(this.decreaseByTenBtn);
+            this.MaximumSize = new System.Drawing.Size(713, 493);
+            this.MinimumSize = new System.Drawing.Size(713, 493);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Tower Of Hanoi";
             this.forLoopGroupBox.ResumeLayout(false);
             this.forLoopGroupBox.PerformLayout();
             this.machtsverheffingGroupBox.ResumeLayout(false);

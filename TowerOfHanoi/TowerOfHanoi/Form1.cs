@@ -20,13 +20,7 @@ namespace TowerOfHanoi
         int layers = 0;
         ulong forLoopAnswer;
         ulong mathPawAnswer;
-        ulong century;
-        ulong years;
-        ulong weeks;
-        ulong days;
-        ulong hours;
-        ulong minutes;
-        ulong seconds;
+
 
 
         private void decreaseByTenBtn_Click(object sender, EventArgs e)
@@ -86,8 +80,8 @@ namespace TowerOfHanoi
             }
             else if (layers >= 54)
             {
-                layersInputLabel.Text = "64";
                 layers = 64;
+                layersInputLabel.Text = layers.ToString();
             }
             else
             {
@@ -99,41 +93,28 @@ namespace TowerOfHanoi
         private void layersInputLabel_TextChanged(object sender, EventArgs e)
         {
             //time:
-            ulong time = forLoopAnswer * 1;
-            if (time > 0)
-            {
-                seconds = time % 60;
-                time -= seconds;
-                time = time / 60;
+            ulong seconds;
+            decimal secondsOut;
+            decimal minutes;
+            decimal hours;
+            int hoursOut;
+            decimal daysDecimal;
+            decimal weeksDecimal;
+            decimal yearsDecimal;
+            decimal centuryDecimal;
 
-                minutes = time % 60;
-                time -= minutes;
-                time = time / 60;
+            
+            seconds = forLoopAnswer;
+            secondsOut = seconds % 60;
+            minutes = seconds / 60;
+            //hoursOut = minutes / 24;
+            //MessageBox.Show(hoursOut.ToString() + ":" + minutes.ToString() + ":" + secondsOut.ToString());
 
-                hours = time % 24;
-                time -= hours;
-                time = time / 24;
-
-                days = time % 7;
-                time -= days;
-                time = time / 7;
-
-                weeks = time % 52;
-                time -= weeks;
-                time = time / 52;
-
-                years = time % 100;
-                time -= years;
-                time = time / 100;
-
-                century = time;
-                time -= years;
-            }
+            
 
 
 
             //For-Loop
-            ulong multyplayNumber = 2;
             forLoopAnswer = 1;
             int powerInt = int.Parse(layersInputLabel.Text);
 
@@ -141,18 +122,20 @@ namespace TowerOfHanoi
             {
                 for (int i = 0; i < powerInt; i++)
                 {
-                    forLoopAnswer *= multyplayNumber;
+                    forLoopAnswer *= 2;
                 }
                 forLoopAnswer--;
-                outputForLoopLabel.Text = "Zetten: " + forLoopAnswer.ToString() 
-                    + "\n\n Tijd:"
+
+
+                outputForLoopLabel.Text = "Zetten: " + forLoopAnswer.ToString()
+                    /*+ "\n\n Tijd:"
                     + " \n Eewen: "+ century
                     + " \n Jaren: " + years
                     + " \n Weken: " + weeks
                     + " \n Dagen: " + days
                     + " \n Uren: " + hours
                     + " \n Minuten: " + minutes 
-                    + " \n Secondens: " + seconds;
+                    + " \n Secondens: " + seconds*/;
             }
             catch
             {
@@ -164,26 +147,34 @@ namespace TowerOfHanoi
             mathPawAnswer = (ulong)Math.Pow(2, layers) - 1;
 
             outputMachtsverheffingLabel.Text = "Zetten: " + mathPawAnswer.ToString()
-                    + "\n\n Tijd:"
+                    /*+ "\n\n Tijd:"
                     + " \n Eewen: " + century
                     + " \n Jaren: " + years
                     + " \n Weken: " + weeks
                     + " \n Dagen: " + days
                     + " \n Uren: " + hours
                     + " \n Minuten: " + minutes
-                    + " \n Secondens: " + seconds;
+                    + " \n Secondens: " + seconds*/;
 
             //recusrie output: 
             outputRecursieLabel.Text = "Zetten: " + calculate(int.Parse(layersInputLabel.Text), 0, 0).ToString()
-                    + "\n\n Tijd:"
+                    /*+ "\n\n Tijd:"
                     + " \n Eewen: " + century
                     + " \n Jaren: " + years
                     + " \n Weken: " + weeks
                     + " \n Dagen: " + days
                     + " \n Uren: " + hours
                     + " \n Minuten: " + minutes
-                    + " \n Secondens: " + seconds;
+                    + " \n Secondens: " + seconds*/;
         }
+
+        
+
+            
+
+            
+
+
 
         //recursie
         private ulong calculate(int disks, int counter, ulong steps)
