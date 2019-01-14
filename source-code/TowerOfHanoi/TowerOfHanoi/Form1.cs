@@ -27,9 +27,9 @@ namespace TowerOfHanoi
         {
             layers = int.Parse(layersInputLabel.Text);
 
-            if (layers < 10)
+            if (layers < 11)
             {
-                layers = 0;
+                layers = 1;
                 layersInputLabel.Text = layers.ToString();
                 return;
             }
@@ -44,7 +44,7 @@ namespace TowerOfHanoi
         {
             layers = int.Parse(layersInputLabel.Text);
 
-            if (layers < 1)
+            if (layers < 2)
             {
                 return;
             }
@@ -92,27 +92,6 @@ namespace TowerOfHanoi
 
         private void layersInputLabel_TextChanged(object sender, EventArgs e)
         {
-            //time:
-            ulong seconds;
-            decimal secondsOut;
-            decimal minutes;
-            decimal hours;
-            int hoursOut;
-            decimal daysDecimal;
-            decimal weeksDecimal;
-            decimal yearsDecimal;
-            decimal centuryDecimal;
-
-            
-            seconds = forLoopAnswer;
-            secondsOut = seconds % 60;
-            minutes = seconds / 60;
-            //hoursOut = minutes / 24;
-            //MessageBox.Show(hoursOut.ToString() + ":" + minutes.ToString() + ":" + secondsOut.ToString());
-
-            
-
-
 
             //For-Loop
             forLoopAnswer = 1;
@@ -127,15 +106,8 @@ namespace TowerOfHanoi
                 forLoopAnswer--;
 
 
-                outputForLoopLabel.Text = "Zetten: " + forLoopAnswer.ToString()
-                    /*+ "\n\n Tijd:"
-                    + " \n Eewen: "+ century
-                    + " \n Jaren: " + years
-                    + " \n Weken: " + weeks
-                    + " \n Dagen: " + days
-                    + " \n Uren: " + hours
-                    + " \n Minuten: " + minutes 
-                    + " \n Secondens: " + seconds*/;
+               
+
             }
             catch
             {
@@ -146,35 +118,71 @@ namespace TowerOfHanoi
 
             mathPawAnswer = (ulong)Math.Pow(2, layers) - 1;
 
+
+            //time
+            ulong time = forLoopAnswer;
+            ulong seconds;
+            ulong minutes;
+            ulong minutesModulo;
+            ulong hours;
+            ulong hoursModulo;
+            ulong days;
+            ulong daysModulo;
+            ulong weeks;
+            ulong weeksModulo;
+            ulong years;
+            ulong yearsModulo;
+            ulong century;
+            ulong centuryModulo;
+
+            seconds = (time % 60); // seconds output
+            minutesModulo = time / 60;
+            minutes = (minutesModulo % 60); // minutes output
+            hoursModulo = minutesModulo / 60;
+            hours = (hoursModulo % 60);
+            daysModulo = hoursModulo / 24;
+            days = (daysModulo % 24);
+            weeksModulo = daysModulo / 7;
+            weeks = (weeksModulo % 7);
+            yearsModulo = weeksModulo / 52;
+            years = (yearsModulo % 52);
+            centuryModulo = yearsModulo / 100;
+            century = centuryModulo;
+
+
+            outputForLoopLabel.Text = "Zetten: " + forLoopAnswer.ToString()
+                + "\n\n Tijd:"
+                + " \n Eewen: " + century.ToString()
+                + " \n Jaren: " + years.ToString()
+                + " \n Weken: " + weeks.ToString()
+                + " \n Dagen: " + days.ToString()
+                + " \n Uren: " + hours.ToString()
+                + " \n Minuten: " + minutes.ToString()
+                + " \n Secondens: " + seconds.ToString();
+
             outputMachtsverheffingLabel.Text = "Zetten: " + mathPawAnswer.ToString()
-                    /*+ "\n\n Tijd:"
+                    + "\n\n Tijd:"
                     + " \n Eewen: " + century
                     + " \n Jaren: " + years
                     + " \n Weken: " + weeks
                     + " \n Dagen: " + days
                     + " \n Uren: " + hours
                     + " \n Minuten: " + minutes
-                    + " \n Secondens: " + seconds*/;
-
-            //recusrie output: 
+                    + " \n Secondens: " + seconds;
+            
             outputRecursieLabel.Text = "Zetten: " + calculate(int.Parse(layersInputLabel.Text), 0, 0).ToString()
-                    /*+ "\n\n Tijd:"
+                    + "\n\n Tijd:"
                     + " \n Eewen: " + century
                     + " \n Jaren: " + years
                     + " \n Weken: " + weeks
                     + " \n Dagen: " + days
                     + " \n Uren: " + hours
                     + " \n Minuten: " + minutes
-                    + " \n Secondens: " + seconds*/;
+                    + " \n Secondens: " + seconds;
+
+
+
         }
-
-        
-
-            
-
-            
-
-
 
         //recursie
         private ulong calculate(int disks, int counter, ulong steps)
@@ -187,6 +195,5 @@ namespace TowerOfHanoi
             counter++;
             return calculate(disks, counter, steps);
         }
-
     }
 }
